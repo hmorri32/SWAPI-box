@@ -7,8 +7,8 @@ import './SwapiBox.css'
 class SwapiBox extends Component {
   constructor() {
     super()
-    this.state ={
-      randomQuote: ''
+    this.state = {
+      randomQuote: '',
     }
   }
 
@@ -18,7 +18,8 @@ class SwapiBox extends Component {
       return response.json()
     })
     .then((json) => {
-      console.log('SUHHH');
+      const peopleList = json.results
+      this.setState({ peopleList: peopleList})
     })
   }
 
@@ -43,7 +44,7 @@ class SwapiBox extends Component {
       <div className='wrapper'>
         <div className='random-quote'>
           <RandomQuote quote={ this.state.randomQuote }/>
-            <Buttons  />
+            <Buttons peopleData={ () => this.grabPeopleData() } />
         </div>
       </div>
     )
