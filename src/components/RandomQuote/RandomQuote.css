@@ -1,4 +1,4 @@
-#titles {
+#wrapper {
   position: absolute;
   width: 15em;
   height: 30em;
@@ -6,24 +6,23 @@
   /*margin-left: -9em;*/
   font-size: 250%;
   font-weight: bold;
-  text-align: center;
+  text-align: justify;
   overflow: hidden;
   transform-origin: 50% 100%;
   transform: perspective(300px) rotateX(25deg);
 }
 
-#titles:after {
+#wrapper:after {
   position: absolute;
   content: ' ';
   left: 0;
   right: 0;
   top: 0;
   bottom: 60%;
-  background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
   pointer-events: none;
 }
 
-#titlecontent {
+#quote {
 	position: absolute;
 	top: 100%;
 	animation: scroll 100s linear 2s infinite;

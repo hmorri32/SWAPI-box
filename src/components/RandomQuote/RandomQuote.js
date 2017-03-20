@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './RandomQuote.css'
 
 const RandomQuote = ({ quote }) => {
   return (
-    <div id="titles">
-      <div id="titlecontent">
+    <div id="wrapper">
+      <div id="quote">
         <p>{ quote }</p>
       </div>
     </div>
