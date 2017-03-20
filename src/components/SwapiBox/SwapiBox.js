@@ -12,13 +12,22 @@ class SwapiBox extends Component {
     }
   }
 
+  grabPeopleData() {
+    fetch('https://swapi.co/api/people/')
+    .then((response) => {
+      return response.json()
+    })
+    .then((json) => {
+      console.log('SUHHH');
+    })
+  }
+
   componentDidMount() {
      fetch('https://swapi.co/api/films/')
     .then((response)=> {
       return response.json()
     })
     .then((json) => {
-
       const randomResult  = Math.random(json.results) * json.count
       const flooredResult = Math.floor(randomResult)
       const randomQuote   = json.results[flooredResult].opening_crawl
@@ -34,7 +43,7 @@ class SwapiBox extends Component {
       <div className='wrapper'>
         <div className='random-quote'>
           <RandomQuote quote={ this.state.randomQuote }/>
-            <Buttons />
+            <Buttons  />
         </div>
       </div>
     )

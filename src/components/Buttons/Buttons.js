@@ -1,12 +1,12 @@
 import React from 'react';
 import './Buttons.css'
 
-const Buttons = () => {
+const Buttons = ({ handleClick }) => {
   return (
     <div className='buttons'>
-      <button>PEOPLE</button>
-      <button>PLANET</button>
-      <button>VEHICLES</button>
+      <button className='button'>PEOPLE</button>
+      <button className='button'>PLANET</button>
+      <button className='button'>VEHICLES</button>
     </div>
   )
 }
