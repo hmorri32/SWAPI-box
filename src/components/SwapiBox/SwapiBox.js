@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import RandomQuote from '../RandomQuote/RandomQuote'
+import Buttons from '../Buttons/Buttons'
+
 import './SwapiBox.css'
 
 class SwapiBox extends Component {
@@ -16,6 +18,7 @@ class SwapiBox extends Component {
       return response.json()
     })
     .then((json) => {
+
       const randomResult  = Math.random(json.results) * json.count
       const flooredResult = Math.floor(randomResult)
       const randomQuote   = json.results[flooredResult].opening_crawl
@@ -31,6 +34,7 @@ class SwapiBox extends Component {
       <div className='wrapper'>
         <div className='random-quote'>
           <RandomQuote quote={ this.state.randomQuote }/>
+            <Buttons />
         </div>
       </div>
     )

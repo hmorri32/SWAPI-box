@@ -7,9 +7,9 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>SWAPI  BOX</h2>
+          <h2 className="swapi-header">SWAPI  BOX</h2>
         </div>
-        <SwapiBox source="https://swapi.co/api/" />
+        <SwapiBox />
       </div>
     );
   }

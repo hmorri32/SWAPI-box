@@ -17,3 +17,7 @@
   color: white;
 }
 
+.swapi-header {
+  position: relative;
+  z-index: 1;
+}
