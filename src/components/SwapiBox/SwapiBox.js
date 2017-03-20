@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RandomQuote from '../RandomQuote/RandomQuote'
 import Buttons from '../Buttons/Buttons'
+import Cards from '../Cards/Cards'
 
 import './SwapiBox.css'
 
@@ -46,6 +47,7 @@ class SwapiBox extends Component {
           <RandomQuote quote={ this.state.randomQuote }/>
             <Buttons peopleData={ () => this.grabPeopleData() } />
         </div>
+        <Cards />
       </div>
     )
   }
