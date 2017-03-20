@@ -5,11 +5,8 @@ const RandomQuote = ({ quote }) => {
   return (
     <div id="titles">
       <div id="titlecontent">
-
         <p>{ quote }</p>
-
       </div>
-
     </div>
 
   )

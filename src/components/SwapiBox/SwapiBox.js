@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RandomQuote from '../RandomQuote/RandomQuote'
+import './SwapiBox.css'
 
 class SwapiBox extends Component {
   constructor() {
