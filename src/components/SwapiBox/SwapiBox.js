@@ -30,9 +30,7 @@ class SwapiBox extends Component {
       <div className='wrapper'>
         <div className='random-quote'>
           <RandomQuote quote={ this.state.randomQuote }/>
-          { this.state.randomQuote }
         </div>
-
       </div>
     )
   }
