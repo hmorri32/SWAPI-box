@@ -16,24 +16,27 @@ const Cards = ({ data }) => {
 
       const homeworld = card.homeworld
 
-      let world = []
+
+      const getFromApi = (json) => {
+        if(!json){return}
+        console.log(json.name);
+        return json.name
+      }
 
       const fetcher = fetch(homeworld)
       .then((response) => {
         return response.json()
       })
       .then((json) => {
-        let assigned = Object.assign({}, json)
-        return assigned
+        getFromApi(json)
         return json.name
       })
-      console.log(fetcher);
 
 
       return (
         <div className='cards' key={ i }>
           <h3> { card.name }</h3>
-          <h4> { } </h4>
+          <h4> { getFromApi() } </h4>
         </div>
       )
     })
