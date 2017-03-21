@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import './Cards.css'
 
-
-
-
 const Cards = ({ data }) => {
   if(!data){
     return (
@@ -33,12 +30,12 @@ const Cards = ({ data }) => {
       //   console.log(json.name);
       //   return json.name
       // }
-
-      console.log(data[0]);
       return (
         <div className='cards' key={ i }>
-          <h3> { card.name }</h3>
+          <h3> { card.name } </h3>
           <h4> { card.worldName } </h4>
+          <h4> { card.planetInfo.population } </h4>
+          <h4> { card.specieInfo.language } </h4>
         </div>
       )
     })
@@ -46,6 +43,7 @@ const Cards = ({ data }) => {
   return (
     <section className="cards">
       <div className="compare-wrap">
+
         { renderCards() }
       </div>
     </section>

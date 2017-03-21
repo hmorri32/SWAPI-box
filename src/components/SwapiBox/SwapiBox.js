@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import RandomQuote from '../RandomQuote/RandomQuote'
-import Buttons from '../Buttons/Buttons'
-import Cards from '../Cards/Cards'
-
+import RandomQuote          from '../RandomQuote/RandomQuote'
+import Buttons              from '../Buttons/Buttons'
+import Cards                from '../Cards/Cards'
 import './SwapiBox.css'
 
 class SwapiBox extends Component {
@@ -20,14 +19,17 @@ class SwapiBox extends Component {
     })
     .then((json) => {
       const newState = json.results.map((card) => {
-        this.grabWorldShit(card)
+        this.grabWorldInfo(card)
+        this.grabSpeciesInfo(card)
         return card;
       })
       this.setState({ peopleList: newState })
+    }).catch(e => {
+      return
     })
   }
 
-  grabWorldShit(card) {
+  grabWorldInfo(card) {
     fetch(card.homeworld)
       .then((response) => {
         return response.json()
@@ -35,18 +37,45 @@ class SwapiBox extends Component {
       .then((json) => {
         const people = this.state.peopleList.map(person => {
           if(person.name === card.name){
-            person.worldName = getFromApi(json)
+            person.worldName = getNameFromApi(json)
+            person.planetInfo = getPlanetInfo(json)
           }
           return person;
         })
         this.setState({ peopleList: people })
+      }).catch(e => {
+        return
       })
-
-    const getFromApi = (json) => {
+    const getNameFromApi = (json) => {
       if(!json){return}
       return json.name
     }
+    const getPlanetInfo = (json) => {
+      if(!json){return}
+      return json
+    }
+  }
 
+  grabSpeciesInfo(card) {
+    fetch(card.species)
+    .then((response) => {
+      return response.json()
+    })
+    .then((json) => {
+      const people = this.state.peopleList.map(person => {
+        if(person.name === card.name) {
+          person.specieInfo = getSpecies(json)
+        }
+        return person
+      })
+      this.setState({ peopleList: people})
+    }).catch(e => {
+      return
+    })
+    const getSpecies = (json) => {
+      if(!json){return}
+      return json
+    }
   }
 
   componentDidMount() {
