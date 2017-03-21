@@ -21,7 +21,6 @@ class SwapiBox extends Component {
     .then((json) => {
       const peopleList = json.results
       this.setState({ peopleList: peopleList})
-      console.log(this.state);
     })
   }
 
