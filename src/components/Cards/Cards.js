@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Cards.css'
+import Card from '../Card/Card'
 
 const Cards = ({ data }) => {
   if(!data){
@@ -11,25 +12,6 @@ const Cards = ({ data }) => {
   const renderCards = () => {
 
     return data.map((card, i) => {
-
-      // const homeworld = card.homeworld
-
-      // fetch(homeworld)
-      //   .then((response) => {
-      //     return response.json()
-      //   })
-      //   .then((json) => {
-      //     card.worldName = getFromApi(json)
-      //   })
-      //
-      // const getFromApi = (json) => {
-      //   if(!json){return}
-      //
-      //   console.log('woot', card)
-      //
-      //   console.log(json.name);
-      //   return json.name
-      // }
       return (
         <div className='cards' key={ i }>
           <h3> { card.name } </h3>
@@ -40,11 +22,21 @@ const Cards = ({ data }) => {
       )
     })
   }
+
+  const renderCard = () => {
+    return data.map((card, i) => {
+      return(
+        <div className='cards' key={ i }>
+          <Card cardInfo={ card } />
+        </div>
+      )
+    })
+  }
+
   return (
     <section className="cards">
       <div className="compare-wrap">
-
-        { renderCards() }
+        { renderCard() }
       </div>
     </section>
   )
