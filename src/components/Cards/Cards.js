@@ -12,36 +12,37 @@ const Cards = ({ data }) => {
   }
 
   const renderCards = () => {
+
     return data.map((card, i) => {
 
-      const homeworld = card.homeworld
+      // const homeworld = card.homeworld
 
+      // fetch(homeworld)
+      //   .then((response) => {
+      //     return response.json()
+      //   })
+      //   .then((json) => {
+      //     card.worldName = getFromApi(json)
+      //   })
+      //
+      // const getFromApi = (json) => {
+      //   if(!json){return}
+      //
+      //   console.log('woot', card)
+      //
+      //   console.log(json.name);
+      //   return json.name
+      // }
 
-      const getFromApi = (json) => {
-        if(!json){return}
-        console.log(json.name);
-        return json.name
-      }
-
-      const fetcher = fetch(homeworld)
-      .then((response) => {
-        return response.json()
-      })
-      .then((json) => {
-        getFromApi(json)
-        return json.name
-      })
-
-
+      console.log(data[0]);
       return (
         <div className='cards' key={ i }>
           <h3> { card.name }</h3>
-          <h4> { getFromApi() } </h4>
+          <h4> { card.worldName } </h4>
         </div>
       )
     })
   }
-
   return (
     <section className="cards">
       <div className="compare-wrap">

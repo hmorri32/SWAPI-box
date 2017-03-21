@@ -19,9 +19,34 @@ class SwapiBox extends Component {
       return response.json()
     })
     .then((json) => {
-      const peopleList = json.results
-      this.setState({ peopleList: peopleList})
+      const newState = json.results.map((card) => {
+        this.grabWorldShit(card)
+        return card;
+      })
+      this.setState({ peopleList: newState })
     })
+  }
+
+  grabWorldShit(card) {
+    fetch(card.homeworld)
+      .then((response) => {
+        return response.json()
+      })
+      .then((json) => {
+        const people = this.state.peopleList.map(person => {
+          if(person.name === card.name){
+            person.worldName = getFromApi(json)
+          }
+          return person;
+        })
+        this.setState({ peopleList: people })
+      })
+
+    const getFromApi = (json) => {
+      if(!json){return}
+      return json.name
+    }
+
   }
 
   componentDidMount() {
