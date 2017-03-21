@@ -28,7 +28,7 @@ const Cards = ({ data }) => {
       if(card.specieInfo === undefined){return}
       console.log(card.specieInfo);
       return(
-        <div className='cards' key={ i }>
+        <div className='card' key={ i }>
           <Card
             cardInfo={ card }
             specieInfo={ card.specieInfo }
@@ -39,8 +39,8 @@ const Cards = ({ data }) => {
   }
 
   return (
-    <section className="cards">
-      <div className="compare-wrap">
+    <section className="cards-section">
+      <div className="cards-wrapper">
         { renderCard() }
       </div>
     </section>
