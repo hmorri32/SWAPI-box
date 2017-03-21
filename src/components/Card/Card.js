@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-const Card = ({ cardInfo }) => {
-  console.log(cardInfo);
+const Card = ({ cardInfo, specieInfo }) => {
+  console.log(specieInfo);
   return (
     <div>
-      <p>{ cardInfo.name }</p>
-      <p>{ cardInfo.worldName }</p>
+      <h3>{ cardInfo.name }</h3>
+      <h4>{ cardInfo.worldName }</h4>
+      <h4>{ specieInfo.name }</h4>
     </div>
   )
 }

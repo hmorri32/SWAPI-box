@@ -25,9 +25,14 @@ const Cards = ({ data }) => {
 
   const renderCard = () => {
     return data.map((card, i) => {
+      if(card.specieInfo === undefined){return}
+      console.log(card.specieInfo);
       return(
         <div className='cards' key={ i }>
-          <Card cardInfo={ card } />
+          <Card
+            cardInfo={ card }
+            specieInfo={ card.specieInfo }
+            />
         </div>
       )
     })
