@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cards.css'
 
-const Cards = () => {
+const Cards = ({ data }) => {
   return (
     <div className='cards'>CardComponent</div>
   )

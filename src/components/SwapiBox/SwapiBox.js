@@ -21,6 +21,7 @@ class SwapiBox extends Component {
     .then((json) => {
       const peopleList = json.results
       this.setState({ peopleList: peopleList})
+      console.log(this.state);
     })
   }
 
@@ -47,7 +48,7 @@ class SwapiBox extends Component {
           <RandomQuote quote={ this.state.randomQuote }/>
             <Buttons peopleData={ () => this.grabPeopleData() } />
         </div>
-        <Cards />
+        <Cards data={ this.state.peopleList }/>
       </div>
     )
   }

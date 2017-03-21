@@ -3,13 +3,14 @@
 }
 
 .App-header {
+  z-index: 22;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Death Star';
   font-size: 30px;
-  background-image: url('./galaxy.jpg');
-  background-size: 100% 300px;
+  background-image: url('./stars.jpg');
+  background-size: 120% 500px;
   /*background-color: #222;*/
   height: cc;
   padding: 20px;
