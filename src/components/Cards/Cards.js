@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
-import './Cards.css'
-import Card   from '../Card/Card'
+import React  from 'react';
 import Person from '../People/Person.js'
 import Planet from '../Planet/Planet.js'
 import Ship   from '../Ship/Ship.js'
 
+import './Cards.css'
 
 const getCards = (selectedContent, category) => {
-  if(category==='people') {
+  if(category === 'people') {
     return selectedContent.map((card, i) => {
-      console.log(card);
       return (
         <div className='card' key={ i }>
           <Person

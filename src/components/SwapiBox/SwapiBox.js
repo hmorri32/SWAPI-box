@@ -17,9 +17,7 @@ class SwapiBox extends Component {
 
   componentDidMount() {
      fetch('https://swapi.co/api/films/')
-    .then((response)=> {
-      return response.json()
-    })
+    .then(response => response.json())
     .then((json) => {
       const randomResult  = Math.random(json.results) * json.count
       const flooredResult = Math.floor(randomResult)
@@ -29,7 +27,6 @@ class SwapiBox extends Component {
   }
 
   grabPeopleData() {
-    console.log('grab people data');
     fetch('https://swapi.co/api/people/')
     .then(response => response.json())
     .then(json => this.setState({ selectedContent: json.results, category: 'people' }))
@@ -37,7 +34,6 @@ class SwapiBox extends Component {
   }
 
   grabPlanetData() {
-    console.log('grab planet data');
     fetch('https://swapi.co/api/planets/')
     .then(response => response.json())
     .then(json => this.setState({ selectedContent: json.results, category: 'planet' }))
@@ -45,7 +41,6 @@ class SwapiBox extends Component {
   }
 
   grabStarShipData() {
-    console.log('grab ship data ');
     fetch('http://swapi.co/api/starships/')
     .then(response => response.json())
     .then(json => this.setState({ selectedContent: json.results, category: 'ship'}))
@@ -65,7 +60,9 @@ class SwapiBox extends Component {
             shipData={ () => this.grabStarShipData() }
             />
         </div>
-        <Cards selectedContent={ this.state.selectedContent } category={ this.state.category } />
+        <Cards
+          selectedContent={ this.state.selectedContent }
+          category={ this.state.category } />
       </div>
     )
   }

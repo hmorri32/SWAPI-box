@@ -21,7 +21,6 @@ class Person extends Component {
     .then(response => response.json())
     .then((json) => {
       this.setState({ homeworld: json.name, population: json.population })
-      console.log(json);
     })
   }
 
@@ -36,7 +35,7 @@ class Person extends Component {
   render() {
     const { name } = this.props
     const { homeworld, species, population, language } = this.state
-    
+
     return (
       <section className="cards-section">
         <div className="cards-wrapper">
