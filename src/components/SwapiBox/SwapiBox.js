@@ -14,6 +14,7 @@ class SwapiBox extends Component {
   }
 
   grabPeopleData() {
+    this.setState({ planetInfo: [] })
     fetch('https://swapi.co/api/people/')
     .then((response) => {
       return response.json()
@@ -79,14 +80,45 @@ class SwapiBox extends Component {
     }
   }
 
-  grabPlanetData(){
-    this.setState({peopleList: []})
+  grabPlanetData() {
+    this.setState({ peopleList: [] })
     fetch('https://swapi.co/api/planets/')
     .then((response) => {
       return response.json()
     })
     .then((json) => {
-      this.setState({ planetInfo: json.results})
+      const newState = json.results.map((card) => {
+        this.grabResidentData(card)
+        return card
+      })
+      this.setState({ planetInfo: newState})
+    }).catch(e => {
+      return
+    })
+  }
+
+  grabResidentData(card) {
+    card.residents.map(resident => {
+      fetch(resident)
+      .then((response) => {
+        return response.json()
+      })
+      .then((json) => {
+        const planet = this.state.planetInfo.map(planet => {
+          if(planet.name === card.name) {
+
+            planet.residentInfo = getPlanets(json)
+          }
+          return planet
+        })
+        this.setState({ planetInfo: planet })
+      }).catch(e => {
+        return
+      })
+      const getPlanets = (json) => {
+        if(!json){return}
+        return json
+      }
     })
   }
 
@@ -113,10 +145,12 @@ class SwapiBox extends Component {
           <RandomQuote quote={ this.state.randomQuote }/>
           <Buttons
             peopleData={ () => this.grabPeopleData() }
-            planetData={() => this.grabPlanetData() }
+            planetData={ () => this.grabPlanetData() }
             />
         </div>
-        <Cards data={ this.state.peopleList }/>
+        <Cards
+          peopleData={ this.state.peopleList }
+          planetData={ this.state.planetInfo }/>
       </div>
     )
   }
