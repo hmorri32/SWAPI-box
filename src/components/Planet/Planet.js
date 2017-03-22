@@ -13,21 +13,28 @@ class Planet extends Component {
   }
 
   getResidents(api) {
-    console.log(api);
-    fetch(api)
-    .then(response => response.json())
-    .then((json) => {
-      console.log('hey');
+    api.map(resident => {
+      fetch(resident)
+      .then(response => response.json())
+      .then((json)=> {
+        console.log(json);
+        this.setState({ residents: json.name})
+      })
     })
   }
 
   render() {
     const { name, terrain, climate, population } = this.props
-    const { residents, } = this.state
-
-
+    const { residents } = this.state
+    
     return (
-      <div>IM A PLANET</div>
+      <div>
+        <h2>{ name }</h2>
+        <h4>Terrain: { terrain}</h4>
+        <h4>Population: { population }</h4>
+        <h4>Climate: { climate }</h4>
+        {residents ? <h4>Resident: { residents }</h4> : null}
+      </div>
     )
   }
 }
