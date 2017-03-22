@@ -104,10 +104,12 @@ class SwapiBox extends Component {
         return response.json()
       })
       .then((json) => {
+
         const planet = this.state.planetInfo.map(planet => {
           if(planet.name === card.name) {
 
             planet.residentInfo = getPlanets(json)
+
           }
           return planet
         })
@@ -117,6 +119,15 @@ class SwapiBox extends Component {
       })
       const getPlanets = (json) => {
         if(!json){return}
+
+        // for (var prop in json){
+        //   let values = Object.values(json)
+        //   console.log(values);
+        //     values.map( name  => {
+        //     })
+        //   }
+
+
         return json
       }
     })
