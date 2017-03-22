@@ -5,7 +5,9 @@ class Person extends Component {
     super()
     this.state = {
       homeworld: '',
-      species: ''
+      species: '',
+      population: '',
+      language: ''
     }
   }
 
@@ -18,7 +20,7 @@ class Person extends Component {
     fetch(api)
     .then(response => response.json())
     .then((json) => {
-      this.setState({ homeworld: json.name })
+      this.setState({ homeworld: json.name, population: json.population })
       console.log(json);
     })
   }
@@ -27,18 +29,24 @@ class Person extends Component {
     fetch(api)
     .then(response => response.json())
     .then((json) => {
-      this.setState({ species: json.name })
+      this.setState({ species: json.name, language: json.language })
     })
   }
 
   render() {
-    const { name, population, language } = this.props
-    const { homeworld, species } = this.state
-
+    const { name } = this.props
+    const { homeworld, species, population, language } = this.state
+    
     return (
       <section className="cards-section">
         <div className="cards-wrapper">
-          "HI"
+          <div>
+            <h2>{ name }</h2>
+            <h4>Species: { species }</h4>
+            <h4>Language: { language } </h4>
+            <h4>Homeworld: { homeworld }</h4>
+            <h4>Population: { population } </h4>
+          </div>
         </div>
       </section>
     )

@@ -43,51 +43,13 @@ class SwapiBox extends Component {
     .then(json => this.setState({ selectedContent: json.results, category: 'planet' }))
     .catch(e => console.log(e));
   }
-  
-  //
-  // grabResidentData(card) {
-  //
-  //   card.residents.map(resident => {
-  //     fetch(resident)
-  //     .then((response) => {
-  //       return response.json()
-  //     })
-  //     .then((json) => {
-  //
-  //       const planet = this.state.planetInfo.map(planet => {
-  //         if(planet.name === card.name) {
-  //
-  //           planet.residentInfo = getPlanets(json)
-  //         }
-  //         return planet
-  //       })
-  //       this.setState({ planetInfo: planet })
-  //     })
-  //     .catch(e => {
-  //       return
-  //     })
-  //     const getPlanets = (json) => {
-  //       if(!json){return}
-  //       return json
-  //     }
-  //   })
-  // }
 
   grabStarShipData() {
-    this.setState({
-      peopleList: [],
-      planetInfo: []
-    })
+    console.log('grab ship data ');
     fetch('http://swapi.co/api/starships/')
-    .then((response) => {
-      return response.json()
-    })
-    .then((json) => {
-      this.setState({ starShipInfo: json.results })
-    })
-    .catch(e => {
-      return
-    })
+    .then(response => response.json())
+    .then(json => this.setState({ selectedContent: json.results, category: 'ship'}))
+    .catch(e => console.log(e))
   }
 
   render() {

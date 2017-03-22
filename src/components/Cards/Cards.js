@@ -3,11 +3,13 @@ import './Cards.css'
 import Card   from '../Card/Card'
 import Person from '../People/Person.js'
 import Planet from '../Planet/Planet.js'
+import Ship   from '../Ship/Ship.js'
 
 
 const getCards = (selectedContent, category) => {
   if(category==='people') {
     return selectedContent.map((card, i) => {
+      console.log(card);
       return (
         <div className='card' key={ i }>
           <Person
@@ -37,46 +39,30 @@ const getCards = (selectedContent, category) => {
       )
     })
   }
+
+  if(category === 'ship') {
+    return selectedContent.map((card, i) => {
+      return (
+        <div className='card' key={ i }>
+          <Ship
+            name={ card.name }
+            model={ card.model }
+            crew={ card.crew }
+            passengers={ card.passengers }
+            hyperdrive={ card.hyperdrive_rating }
+            />
+        </div>
+      )
+    })
+  }
 }
 
 const Cards = ({ selectedContent, category }) => {
-
   return (
     <div>
       { getCards(selectedContent, category) }
     </div>
   )
-
-  //
-  // if(shipData !== undefined && shipData.length > 1){
-  //   const renderShips = () => {
-  //     return shipData.map((card, i) => {
-  //       return(
-  //         <div className='card' key={ i }>
-  //           <Card shipInfo={ card } />
-  //         </div>
-  //       )
-  //     })
-  //   }
-  //   return (
-  //     <div>{ renderShips() }</div>
-  //   )
-  // }
-  //
-  // if(planetData !== undefined && planetData.length > 1){
-  //   const renderPlanets = () => {
-  //     return planetData.map((card, i) => {
-  //       return(
-  //         <div className='card' key={ i }>
-  //           <Card planetInfo={ card } />
-  //         </div>
-  //       )
-  //     })
-  //   }
-  //   return(
-  //     <div>{ renderPlanets() }</div>
-  //   )
-  // }
 }
 
 export default Cards
