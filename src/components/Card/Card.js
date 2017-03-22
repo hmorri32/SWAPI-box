@@ -9,7 +9,7 @@ const Card = ({ cardInfo, specieInfo, planetInfo }) => {
         <h4>Terrain: { planetInfo.terrain}</h4>
         <h4>Population: { planetInfo.population }</h4>
         <h4>Climate: { planetInfo.climate }</h4>
-        {planetInfo.residentInfo ? <h3>{planetInfo.residentInfo.name}</h3> : null}
+        {planetInfo.residentInfo ? <h3>Resident: {planetInfo.residentInfo.name}</h3> : null}
       </div>
     )
   }

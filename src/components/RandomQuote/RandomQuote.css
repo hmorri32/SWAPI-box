@@ -1,5 +1,6 @@
 #wrapper {
   position: absolute;
+  z-index: -1;
   width: 15em;
   height: 30em;
   bottom: 0;
