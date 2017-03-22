@@ -37,7 +37,6 @@ const getCards = (selectedContent, category) => {
       )
     })
   }
-
 }
 
 const Cards = ({ selectedContent, category }) => {

@@ -12,7 +12,6 @@ class Person extends Component {
   componentDidMount() {
     this.getHomeWorld(this.props.homeworld)
     this.getSpecies(this.props.species)
-
   }
 
   getHomeWorld(api) {

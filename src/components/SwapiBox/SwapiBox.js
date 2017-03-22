@@ -36,18 +36,12 @@ class SwapiBox extends Component {
     .catch(e => console.log(e))
   }
 
-
   grabPlanetData() {
-
+    console.log('grab planet data');
     fetch('https://swapi.co/api/planets/')
-    .then((response) => {
-      return response.json()
-    })
-    .then((json) => {
-      this.setState({ selectedContent: json.results, category:'planet' })
-    }).catch(e => {
-      console.log(e);
-    })
+    .then(response => response.json())
+    .then(json => this.setState({ selectedContent: json.results, category: 'planet' }))
+    .catch(e => console.log(e));
   }
   //
   // grabResidentData(card) {
