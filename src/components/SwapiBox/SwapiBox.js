@@ -120,14 +120,21 @@ class SwapiBox extends Component {
       const getPlanets = (json) => {
         if(!json){return}
 
+        //
+        // console.log(tank);
+        //
         // for (var prop in json){
+        //
         //   let values = Object.values(json)
-        //   console.log(values);
-        //     values.map( name  => {
-        //     })
-        //   }
-
-
+        //   let names = []
+        //   values.map( name  => {
+        //     if(name.includes('Raymus') || name.includes('Leia')){
+        //       names.push(name)
+        //       if(names.includes(name)){
+        //       }
+        //     }
+        //   })
+        // }
         return json
       }
     })
