@@ -43,6 +43,7 @@ class SwapiBox extends Component {
     .then(json => this.setState({ selectedContent: json.results, category: 'planet' }))
     .catch(e => console.log(e));
   }
+  
   //
   // grabResidentData(card) {
   //
