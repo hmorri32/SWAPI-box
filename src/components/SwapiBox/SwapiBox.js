@@ -14,7 +14,7 @@ class SwapiBox extends Component {
   }
 
   grabPeopleData() {
-    this.setState({ planetInfo: [] })
+    this.setState({ planetInfo: [], starShipInfo: [] })
     fetch('https://swapi.co/api/people/')
     .then((response) => {
       return response.json()
@@ -81,7 +81,7 @@ class SwapiBox extends Component {
   }
 
   grabPlanetData() {
-    this.setState({ peopleList: [] })
+    this.setState({ peopleList: [], starShipInfo: [] })
     fetch('https://swapi.co/api/planets/')
     .then((response) => {
       return response.json()
@@ -140,6 +140,20 @@ class SwapiBox extends Component {
     })
   }
 
+  grabStarShipData() {
+    this.setState({ peopleList: [], planetInfo: [] })
+    fetch('http://swapi.co/api/starships/')
+    .then((response) => {
+      return response.json()
+    })
+    .then((json) => {
+      this.setState({ starShipInfo: json.results })
+    })
+    .catch(e => {
+      return
+    })
+  }
+
   componentDidMount() {
      fetch('https://swapi.co/api/films/')
     .then((response)=> {
@@ -164,11 +178,14 @@ class SwapiBox extends Component {
           <Buttons
             peopleData={ () => this.grabPeopleData() }
             planetData={ () => this.grabPlanetData() }
+            shipData={ () => this.grabStarShipData() }
             />
         </div>
         <Cards
           peopleData={ this.state.peopleList }
-          planetData={ this.state.planetInfo }/>
+          planetData={ this.state.planetInfo }
+          shipData={ this.state.starShipInfo }
+          />
       </div>
     )
   }

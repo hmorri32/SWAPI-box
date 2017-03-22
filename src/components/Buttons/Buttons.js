@@ -1,12 +1,12 @@
 import React from 'react';
 import './Buttons.css'
 
-const Buttons = ({ peopleData, planetData }) => {
+const Buttons = ({ peopleData, planetData, shipData }) => {
   return (
     <div className='buttons'>
       <button onClick={ peopleData } className='button'>PEOPLE</button>
       <button onClick={ planetData } className='button'>PLANETS</button>
-      <button className='button'>VEHICLES</button>
+      <button onClick={ shipData } className='button'>SHIPS</button>
     </div>
   )
 }

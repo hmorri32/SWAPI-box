@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import './Card.css'
 
-const Card = ({ cardInfo, specieInfo, planetInfo }) => {
+const Card = ({ cardInfo, specieInfo, planetInfo, shipInfo }) => {
+
+  if(shipInfo){
+    return (
+      <div>
+        <h2>{ shipInfo.name }</h2>
+        <h4>Model: { shipInfo.model }</h4>
+        <h4>Crew: { shipInfo.crew }</h4>
+        <h4>Passengers: { shipInfo.passengers }</h4>
+        <h4>Hyperdrive Rating: { shipInfo.hyperdrive_rating }</h4>
+      </div>
+    )
+  }
+
   if(planetInfo){
     return(
       <div>
