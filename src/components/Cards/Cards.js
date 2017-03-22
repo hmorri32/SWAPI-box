@@ -9,24 +9,9 @@ const Cards = ({ data }) => {
     )
   }
 
-  const renderCards = () => {
-
-    return data.map((card, i) => {
-      return (
-        <div className='cards' key={ i }>
-          <h3> { card.name } </h3>
-          <h4> { card.worldName } </h4>
-          <h4> { card.planetInfo.population } </h4>
-          <h4> { card.specieInfo.language } </h4>
-        </div>
-      )
-    })
-  }
-
   const renderCard = () => {
     return data.map((card, i) => {
       if(card.specieInfo === undefined){return}
-      console.log(card.specieInfo);
       return(
         <div className='card' key={ i }>
           <Card

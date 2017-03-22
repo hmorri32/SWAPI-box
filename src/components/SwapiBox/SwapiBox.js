@@ -81,7 +81,13 @@ class SwapiBox extends Component {
 
   grabPlanetData(){
     this.setState({peopleList: []})
-
+    fetch('https://swapi.co/api/planets/')
+    .then((response) => {
+      return response.json()
+    })
+    .then((json) => {
+      this.setState({ planetInfo: json.results})
+    })
   }
 
   componentDidMount() {
