@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import RandomQuote          from '../RandomQuote/RandomQuote'
 import Buttons              from '../Buttons/Buttons'
 import Cards                from '../Cards/Cards'
+
 import './SwapiBox.css'
 
 class SwapiBox extends Component {
@@ -78,6 +79,11 @@ class SwapiBox extends Component {
     }
   }
 
+  grabPlanetData(){
+    this.setState({peopleList: []})
+
+  }
+
   componentDidMount() {
      fetch('https://swapi.co/api/films/')
     .then((response)=> {
@@ -99,7 +105,10 @@ class SwapiBox extends Component {
       <div className='wrapper'>
         <div className='random-quote'>
           <RandomQuote quote={ this.state.randomQuote }/>
-            <Buttons peopleData={ () => this.grabPeopleData() } />
+          <Buttons
+            peopleData={ () => this.grabPeopleData() }
+            planetData={() => this.grabPlanetData() }
+            />
         </div>
         <Cards data={ this.state.peopleList }/>
       </div>

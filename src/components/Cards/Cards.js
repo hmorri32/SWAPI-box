@@ -48,29 +48,3 @@ const Cards = ({ data }) => {
 }
 
 export default Cards
-
-//
-// const renderCards = () => {
-//   const dataKeys = Object.keys(cards[0].data);
-//   return cards.map((card, i) => {
-//     return(
-//       <div className="county-card selected" key={ i }>
-//         <h3>{ card.location }</h3>
-//         <ul className="county-stats">
-//           {dataKeys.map((year, i) => {
-//             if (cards[0].data[year] > 0.5) {
-//               return (
-//                 <li className="stat redStat" key={i}>{ year }: { card.data[year] }</li>
-//               )
-//             }
-//             return (
-//               <li className="stat" key={i}>{ year }: { card.data[year] }</li>
-//             )
-//           })}
-//         </ul>
-//       </div>
-//     )
-//   })
-// }
-//
-//
