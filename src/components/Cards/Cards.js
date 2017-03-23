@@ -50,6 +50,7 @@ const getCards = (selectedContent, category, clickFav, favorites) => {
             crew={ card.crew }
             passengers={ card.passengers }
             hyperdrive={ card.hyperdrive_rating }
+            clickFav={ clickFav }
             />
         </div>
       )
@@ -84,7 +85,20 @@ const getCards = (selectedContent, category, clickFav, favorites) => {
               clickFav={ clickFav }
               />
           </div>
-
+        )
+      }
+      if(card.hyperdrive_rating) {
+        return (
+          <div className='card' key={ i }>
+            <Ship
+              name={ card.name }
+              model={ card.model }
+              crew={ card.crew }
+              passengers={ card.passengers }
+              hyperdrive={ card.hyperdrive_rating }
+              clickFav={ clickFav }
+              />
+          </div>
         )
       }
     })
