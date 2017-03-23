@@ -9,7 +9,8 @@ describe('testing Cards component', () => {
       population: 10,
       climate: 'hot!',
       language: 'english',
-      homeworld: []
+      homeworld: [],
+      skin_color: 'yar'
     }];
 
   const mockPlanet = [
@@ -26,7 +27,8 @@ describe('testing Cards component', () => {
       model: 'shipz',
       crew: 'derelicte!',
       passengers: 'more than you.',
-      hyperdrive: []
+      hyperdrive: [],
+      hyperdrive_rating: 'neat'
     }
   ]
 
@@ -101,6 +103,40 @@ describe('testing Cards component', () => {
     expect(wrapper.find('Ship').props().model).toBe('shipz')
     expect(wrapper.find('Ship').props().crew).toBe('derelicte!')
     expect(wrapper.find('Ship').props().passengers).toBe('more than you.')
+  })
+
+  it('favorites should render Person card given Person data', () => {
+    const wrapper = shallow( <Cards
+                                selectedContent={ mockPeople }
+                                category='favorites'
+                                favorites={ mockPeople }
+                                />)
+
+    expect(wrapper.find('Person').length).toBe(1)
+    expect(wrapper.find('Ship').length).toBe(0)
+    expect(wrapper.find('Planet').length).toBe(0)
+  })
+
+  it('favorites should render planet card given planet data', () => {
+    const wrapper = shallow( <Cards
+                                selectedContent={ mockPlanet }
+                                category='favorites'
+                                favorites={ mockPlanet }
+                                />)
+    expect(wrapper.find('Planet').length).toBe(1)
+    expect(wrapper.find('Ship').length).toBe(0)
+    expect(wrapper.find('Person').length).toBe(0)
+  })
+
+  it('favorites should render Ship card given Ship data', () => {
+    const wrapper = shallow( <Cards
+                                selectedContent={ mockShip }
+                                category='favorites'
+                                favorites={ mockShip }
+                                />)
+    expect(wrapper.find('Planet').length).toBe(0)
+    expect(wrapper.find('Ship').length).toBe(1)
+    expect(wrapper.find('Person').length).toBe(0)
   })
 
 

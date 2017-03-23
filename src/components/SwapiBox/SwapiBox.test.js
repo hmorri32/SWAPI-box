@@ -97,10 +97,21 @@ describe('testing SwapiBox component', () => {
     expect(mock).toHaveBeenCalled()
   })
 
-  it('onclick function should fire on last button click', () => {
+  it('onclick function should fire on third button click', () => {
 
     const mock    = jest.fn()
     const wrapper = mount( <Buttons shipData={ mock } />)
+    const btn     = wrapper.find('.button').at(2)
+
+    btn.simulate('click')
+
+    expect(mock).toHaveBeenCalled()
+  })
+
+  it('onclick function should fire on last button click', () => {
+
+    const mock    = jest.fn()
+    const wrapper = mount( <Buttons favorites={ mock } />)
     const btn     = wrapper.find('.button').last()
 
     btn.simulate('click')
