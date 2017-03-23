@@ -1,8 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow, mount } from 'enzyme';
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-});
+describe('testing App component', () => {
+  it('App should render', () => {
+    const wrapper = shallow ( <App />)
+
+    expect(wrapper.contains(
+      <h2 className="swapi-header">SWAPI  BOX</h2>))
+      .toEqual(true);
+
+    expect(wrapper.find('SwapiBox').length).toEqual(1)
+  })
+
+  it('App should render a component called SwapiBox', () => {
+    const wrapper = shallow ( <App />)
+    expect(wrapper.find('SwapiBox').length).toEqual(1)
+  })
+})
+
+
+

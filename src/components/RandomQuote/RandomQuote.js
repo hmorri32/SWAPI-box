@@ -8,7 +8,6 @@ const RandomQuote = ({ quote }) => {
         <p>{ quote }</p>
       </div>
     </div>
-
   )
 }
 

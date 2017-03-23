@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 import SwapiBox from '../SwapiBox/SwapiBox';
+import './App.css';
 
 
 class App extends Component {
