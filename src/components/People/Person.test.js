@@ -64,7 +64,7 @@ describe('testing Person component', () => {
     expect(wrapper.find('.cards-wrapper').length).toBe(1)
   })
 
-  it.only('Person should receive props, update state, and render ', () => {
+  it('Person should receive props, update state, and render ', () => {
     const wrapper = mount(  <Person
                                 name='chad'
                                 homeworld='suhh'
@@ -92,10 +92,7 @@ describe('testing Person component', () => {
       language: mockPeople.language
      })
 
-    console.log(wrapper.debug());
-
     expect(wrapper.contains(<h2>chad</h2>)).toEqual(true);
-
     expect(wrapper.state().homeworld).toEqual('naboo')
     expect(wrapper.state().species).toEqual('Pineapples')
     expect(wrapper.state().population).toEqual(10)
