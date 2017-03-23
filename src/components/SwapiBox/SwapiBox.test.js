@@ -1,8 +1,8 @@
-import React from 'react';
+import React              from 'react';
 import { shallow, mount } from 'enzyme';
-import fetchMock from 'fetch-mock';
-import SwapiBox from './SwapiBox';
-import Buttons from '../Buttons/Buttons'
+import fetchMock          from 'fetch-mock';
+import SwapiBox           from './SwapiBox';
+import Buttons            from '../Buttons/Buttons'
 
 describe('testing SwapiBox component', () => {
   const mockPeople = [

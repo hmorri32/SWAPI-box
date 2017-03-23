@@ -12,6 +12,3 @@ const RandomQuote = ({ quote }) => {
 }
 
 export default RandomQuote
-
-
-
