@@ -9,7 +9,7 @@ const Ship = ({ name, model, crew, passengers, hyperdrive }) => {
       <h4>Passengers: { passengers }</h4>
       <h4>Hyperdrive Rating: { hyperdrive }</h4>
       <button className='fav'>
-        <img className='vader-btn' src={require('../People/vader.svg')} />
+        <img className='vader-btn' src={require('../People/vader.svg')} alt='vaderBtn' />
       </button>
     </div>
   )

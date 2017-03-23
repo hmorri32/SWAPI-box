@@ -49,7 +49,7 @@ class Person extends Component {
             <button
               className='fav'
               onClick={ () => clickFav(name) }>
-              <img className='vader-btn' src={require('./vader.svg')} />
+              <img className='vader-btn' src={require('./vader.svg')} alt='vaderBtn'/>
             </button>
           </div>
         </div>

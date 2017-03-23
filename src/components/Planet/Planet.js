@@ -24,7 +24,7 @@ class Planet extends Component {
   }
 
   render() {
-    const { name, terrain, climate, population } = this.props
+    const { name, terrain, climate, population, clickFav } = this.props
     const { residents } = this.state
 
     return (
@@ -34,8 +34,10 @@ class Planet extends Component {
         <h4>Population: { population }</h4>
         <h4>Climate: { climate }</h4>
         { residents.length > 0 ? <h4>Residents: { residents.join(', ') }</h4> : null }
-        <button className='fav'>
-          <img className='vader-btn' src={ require('../People/vader.svg')}/>
+        <button
+          className='fav'
+          onClick={ () => clickFav(name) }>
+          <img className='vader-btn' src={ require('../People/vader.svg')} alt='vaderBtn'/>
         </button>
       </div>
     )

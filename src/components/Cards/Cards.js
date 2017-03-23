@@ -33,6 +33,7 @@ const getCards = (selectedContent, category, clickFav, favorites) => {
             climate={ card.climate }
             population={ card.population }
             residents={ card.residents }
+            clickFav={ clickFav }
             />
         </div>
       )
@@ -58,7 +59,6 @@ const getCards = (selectedContent, category, clickFav, favorites) => {
   if(category === 'favorites'){
     return favorites.map((card, i) => {
       if(card.skin_color) {
-        console.log(card);
         return(
           <div className='card' key={ i }>
             <Person
@@ -70,6 +70,21 @@ const getCards = (selectedContent, category, clickFav, favorites) => {
               clickFav={ clickFav }
               />
           </div>
+        )
+      }
+      if(card.climate) {
+        return(
+          <div className='card' key={ i }>
+            <Planet
+              name={ card.name }
+              terrain={ card.terrain }
+              climate={ card.climate }
+              population={ card.population }
+              residents={ card.residents }
+              clickFav={ clickFav }
+              />
+          </div>
+
         )
       }
     })

@@ -1,7 +1,7 @@
 .buttons {
   display: flex;
   justify-content: space-around;
-  width: 70%;
+  width: 90%;
   align-items: center;
   position: relative;
 }
