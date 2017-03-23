@@ -12,7 +12,6 @@ describe('testing SwapiBox component', () => {
       climate: 'hot!'
     }];
 
-
   it('SwapiBox should have a default state category that is an empty string, ', () => {
     const wrapper = shallow( <SwapiBox /> )
     const state   = wrapper.state();
@@ -30,6 +29,12 @@ describe('testing SwapiBox component', () => {
     const wrapper = shallow( <SwapiBox /> )
     const state   = wrapper.state();
     expect(state.randomQuote).toBe('')
+  })
+
+  it('SwapiBox should have a default state favorites that is an empty array', () => {
+    const wrapper = shallow( <SwapiBox /> )
+    const state   = wrapper.state();
+    expect(state.favorites).toEqual([])
   })
 
   it('SwapiBox should render a randomQuote component', () => {
@@ -52,13 +57,14 @@ describe('testing SwapiBox component', () => {
     expect(buttons.length).toBe(1)
   })
 
-  it('Button component should receive 3 functions as props', () => {
+  it('Button component should receive 4 functions as props', () => {
     const wrapper = shallow(<SwapiBox />)
     const buttons = wrapper.find('Buttons').first()
 
     expect(buttons.props().peopleData).toBeDefined()
     expect(buttons.props().planetData).toBeDefined()
     expect(buttons.props().shipData).toBeDefined()
+    expect(buttons.props().favorites).toBeDefined()
   })
 
   it('swapiBox should render Cards component', () => {
