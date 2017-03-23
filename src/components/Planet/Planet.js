@@ -33,7 +33,7 @@ class Planet extends Component {
         <h4>Terrain: { terrain}</h4>
         <h4>Population: { population }</h4>
         <h4>Climate: { climate }</h4>
-        { residents.length > 0 ? <h4>Residents: { residents.join(' ') }</h4> : null }
+        { residents.length > 0 ? <h4>Residents: { residents.join(', ') }</h4> : null }
       </div>
     )
   }

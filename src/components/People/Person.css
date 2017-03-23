@@ -1,0 +1,20 @@
+
+.fav {
+  border: none;
+  height: 30px;
+  width: 30px;
+  border: none;
+  background: transparent;
+}
+
+.vader-btn {
+  height: 30px;
+  width: 30px;
+  margin-top: -10px;
+}
+
+.vader-btn:hover {
+  border: 1px solid black;
+  border-radius: 100%;
+  cursor: pointer;
+}

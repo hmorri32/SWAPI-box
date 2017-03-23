@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Person.css'
 
 class Person extends Component {
   constructor() {
@@ -45,6 +46,7 @@ class Person extends Component {
             <h4>Language: { language } </h4>
             <h4>Homeworld: { homeworld }</h4>
             <h4>Population: { population } </h4>
+            <button className='fav'><img className='vader-btn' src={require('./vader.svg')}></img></button>
           </div>
         </div>
       </section>

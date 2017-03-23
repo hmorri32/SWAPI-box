@@ -6,7 +6,7 @@
 
 .card {
   background-image: url('./card5.jpg');
-  background-size: auto;
+  background-size: 100% 600px;
   position: relative;
   border: 1px solid pink;
   color: white;
