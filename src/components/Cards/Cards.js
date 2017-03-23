@@ -4,7 +4,8 @@ import Planet from '../Planet/Planet.js'
 import Ship   from '../Ship/Ship.js'
 import './Cards.css'
 
-const getCards = (selectedContent, category) => {
+const getCards = (selectedContent, category, clickFav) => {
+
   if(category === 'people') {
     return selectedContent.map((card, i) => {
       return (
@@ -15,6 +16,7 @@ const getCards = (selectedContent, category) => {
             species={ card.species }
             population={ card.population }
             language={ card.language }
+            clickFav={ clickFav }
             />
         </div>
       )
@@ -54,10 +56,10 @@ const getCards = (selectedContent, category) => {
   }
 }
 
-const Cards = ({ selectedContent, category }) => {
+const Cards = ({ selectedContent, category, clickFav }) => {
   return (
     <div className='cards-container'>
-      { getCards(selectedContent, category) }
+      { getCards(selectedContent, category, clickFav) }
     </div>
   )
 }

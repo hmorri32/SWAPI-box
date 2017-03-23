@@ -12,6 +12,7 @@ class SwapiBox extends Component {
       category: '',
       selectedContent: '',
       randomQuote: '',
+      favorites:[]
     }
   }
 
@@ -47,6 +48,27 @@ class SwapiBox extends Component {
     .catch(e => console.log(e))
   }
 
+  addFavorite(name) {
+    const fav    = this.state.selectedContent.filter(card => card.name === name)
+    const newFav = this.state.favorites.concat(fav)
+    this.setState({ favorites: newFav })
+  }
+
+  removeFavorite(name) {
+    const card = this.state.favorites.findIndex(card => card.name === name)
+    this.state.favorites.splice(card, 1)
+    this.setState({ favorites: this.state.favorites})
+  }
+
+  toggleFavorites(name) {
+    if(!this.state.favorites.length) {
+      this.addFavorite(name)
+    }
+    this.state.favorites.map(card => {
+      return card.name === name ? this.removeFavorite(name) : this.addFavorite(name)
+    })
+  }
+
   render() {
     return (
       <div className='wrapper'>
@@ -62,7 +84,9 @@ class SwapiBox extends Component {
         </div>
         <Cards
           selectedContent={ this.state.selectedContent }
-          category={ this.state.category } />
+          category={ this.state.category }
+          clickFav={ (name) => this.toggleFavorites(name) }
+           />
       </div>
     )
   }

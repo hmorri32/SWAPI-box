@@ -33,17 +33,12 @@ class Person extends Component {
     })
   }
 
-  handleClick(e) {
-    
-    console.log(e.target);
-  }
-
   render() {
-    const { name } = this.props
+    const { name, clickFav } = this.props
     const { homeworld, species, population, language } = this.state
 
     return (
-      <section className="cards-section" onClick={(e) => this.handleClick(e) }>
+      <section className="cards-section" >
         <div className="cards-wrapper">
           <div>
             <h2>{ name }</h2>
@@ -53,8 +48,7 @@ class Person extends Component {
             <h4>Population: { population } </h4>
             <button
               className='fav'
-              onClick={(e) => this.handleClick(e) }
-              >
+              onClick={ () => clickFav(name) }>
               <img className='vader-btn' src={require('./vader.svg')} />
             </button>
           </div>
