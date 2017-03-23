@@ -25,7 +25,7 @@ describe('testing Planet component', () => {
                                 population={ mockPlanet.population }
                                 residents= {[]}
                                 /> )
-                                
+
     const state   = wrapper.state();
     expect(state.residents).toEqual([])
     expect(wrapper.props().name).toBe('toby')

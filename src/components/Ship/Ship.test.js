@@ -24,7 +24,7 @@ describe('testing ship component', () => {
                               passengers={ mockShip.passengers }
                               hyperdrive={ mockShip.hyperdrive }
                               /> )
-  
+
     expect(wrapper.props().name).toBe('shippy mcShipFace')
     expect(wrapper.props().model).toBe('shipz')
     expect(wrapper.props().crew).toBe('derelicte!')

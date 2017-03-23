@@ -56,7 +56,7 @@ const getCards = (selectedContent, category) => {
 
 const Cards = ({ selectedContent, category }) => {
   return (
-    <div>
+    <div className='cards-container'>
       { getCards(selectedContent, category) }
     </div>
   )

@@ -1,4 +1,17 @@
-.card {
-  position: relative;
-  border: 1px solid black;
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.card {
+  background-image: url('./card5.jpg');
+  background-size: auto;
+  position: relative;
+  border: 1px solid pink;
+  color: white;
+  width: 70%;
+  margin: 10px;
+}
+
+
