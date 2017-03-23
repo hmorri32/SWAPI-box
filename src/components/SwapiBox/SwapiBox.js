@@ -68,6 +68,9 @@ class SwapiBox extends Component {
       return card.name === name ? this.removeFavorite(name) : this.addFavorite(name)
     })
   }
+  setCategoryForFav() {
+    this.setState({ category: 'favorites'})
+  }
 
   render() {
     return (
@@ -80,12 +83,14 @@ class SwapiBox extends Component {
             peopleData={ () => this.grabPeopleData() }
             planetData={ () => this.grabPlanetData() }
             shipData={ () => this.grabStarShipData() }
+            favorites={ () => this.setCategoryForFav() }
             />
         </div>
         <Cards
           selectedContent={ this.state.selectedContent }
           category={ this.state.category }
           clickFav={ (name) => this.toggleFavorites(name) }
+          favorites={ this.state.favorites }
            />
       </div>
     )

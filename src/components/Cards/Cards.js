@@ -4,7 +4,7 @@ import Planet from '../Planet/Planet.js'
 import Ship   from '../Ship/Ship.js'
 import './Cards.css'
 
-const getCards = (selectedContent, category, clickFav) => {
+const getCards = (selectedContent, category, clickFav, favorites) => {
 
   if(category === 'people') {
     return selectedContent.map((card, i) => {
@@ -54,12 +54,32 @@ const getCards = (selectedContent, category, clickFav) => {
       )
     })
   }
+
+  if(category === 'favorites'){
+    return favorites.map((card, i) => {
+      if(card.skin_color) {
+        console.log(card);
+        return(
+          <div className='card' key={ i }>
+            <Person
+              name={ card.name }
+              homeworld={ card.homeworld }
+              species={ card.species }
+              population={ card.population }
+              language={ card.language }
+              clickFav={ clickFav }
+              />
+          </div>
+        )
+      }
+    })
+  }
 }
 
-const Cards = ({ selectedContent, category, clickFav }) => {
+const Cards = ({ selectedContent, category, clickFav, favorites }) => {
   return (
     <div className='cards-container'>
-      { getCards(selectedContent, category, clickFav) }
+      { getCards(selectedContent, category, clickFav, favorites) }
     </div>
   )
 }
