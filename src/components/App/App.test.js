@@ -3,7 +3,6 @@ import { shallow, mount } from 'enzyme';
 import App from './App';
 
 describe('testing App component', () => {
-
   it('App should render', () => {
     const wrapper = shallow ( <App />)
 
@@ -18,7 +17,6 @@ describe('testing App component', () => {
     const wrapper = shallow ( <App />)
     expect(wrapper.find('SwapiBox').length).toEqual(1)
   })
-
 })
 
 

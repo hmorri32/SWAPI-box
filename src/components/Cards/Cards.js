@@ -2,7 +2,6 @@ import React  from 'react';
 import Person from '../People/Person.js'
 import Planet from '../Planet/Planet.js'
 import Ship   from '../Ship/Ship.js'
-
 import './Cards.css'
 
 const getCards = (selectedContent, category) => {
