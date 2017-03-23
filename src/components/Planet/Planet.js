@@ -34,6 +34,9 @@ class Planet extends Component {
         <h4>Population: { population }</h4>
         <h4>Climate: { climate }</h4>
         { residents.length > 0 ? <h4>Residents: { residents.join(', ') }</h4> : null }
+        <button className='fav'>
+          <img className='vader-btn' src={require('../People/vader.svg')} />
+        </button>
       </div>
     )
   }

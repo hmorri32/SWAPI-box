@@ -5,16 +5,19 @@
   width: 30px;
   border: none;
   background: transparent;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.fav:focus {
+  outline: none;
 }
 
 .vader-btn {
   height: 30px;
   width: 30px;
-  margin-top: -10px;
 }
 
 .vader-btn:hover {
-  border: 1px solid black;
-  border-radius: 100%;
   cursor: pointer;
 }
