@@ -42,7 +42,7 @@ class SwapiBox extends Component {
   }
 
   grabStarShipData() {
-    fetch('http://swapi.co/api/starships/')
+    fetch('https://swapi.co/api/starships/')
     .then(response => response.json())
     .then(json => this.setState({ selectedContent: json.results, category: 'ship'}))
     .catch(e => console.log(e))
